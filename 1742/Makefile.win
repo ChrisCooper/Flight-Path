@@ -1,0 +1,42 @@
+# Project: Flight_Path
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = main.o Increments.o Initializations.o Game_Logic.o Game_Visuals.o $(RES)
+LINKOBJ  = main.o Increments.o Initializations.o Game_Logic.o Game_Visuals.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib" -lalgif -lalleg  
+INCS =  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include" 
+BIN  = Flight_Path.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before Flight_Path.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "Flight_Path.exe" $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+Increments.o: Increments.cpp
+	$(CPP) -c Increments.cpp -o Increments.o $(CXXFLAGS)
+
+Initializations.o: Initializations.cpp
+	$(CPP) -c Initializations.cpp -o Initializations.o $(CXXFLAGS)
+
+Game_Logic.o: Game_Logic.cpp
+	$(CPP) -c Game_Logic.cpp -o Game_Logic.o $(CXXFLAGS)
+
+Game_Visuals.o: Game_Visuals.cpp
+	$(CPP) -c Game_Visuals.cpp -o Game_Visuals.o $(CXXFLAGS)
